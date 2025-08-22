@@ -126,11 +126,11 @@
       estado.textContent = 'Enviando…';
 
       try {
-        const res = await fetch(BACKEND_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ respuesta: payload })
-        });
+        const res = fetch("http://localhost:3000/responder", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(datos)
+})
 
         if (!res.ok) throw new Error('Respuesta no OK del servidor');
         const data = await res.json().catch(()=>({mensaje:'Respuesta registrada.'}));
